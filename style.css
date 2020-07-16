@@ -1,0 +1,17 @@
+header {
+    text-align: center;
+    background-color: rgb(20, 127, 141);
+    height: auto;
+    color: white;
+    font-size: 30px;
+}
+
+.container2 {
+    text-align: center;
+    height: auto;
+    width: auto;
+}
+
+#row2 {
+    float: left;
+}
