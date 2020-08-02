@@ -15,6 +15,10 @@ function foreCast(cityName) {
         method: "get"
     }).then(function(API){
         console.log(API)
+        $("#display-4").text(`City: ${API.name}, ${API.sys.country}`)
+        var lat = API.coord.lat
+        var lon = API.coord.lon
+        UV(lat, lon)
         $("#forecasts").html(`<div class = "card">
         <h6>Temp: ${API.main.temp}</h6>
         <p>Description: ${API.weather[0].description}</p>
@@ -50,3 +54,14 @@ function fivedayforeCast(cityName) {
 }
 
 //http://samples.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&appid=439d4b804bc8187953eb36d2a8c26a02
+function UV(lat, lon) {
+    var url = `http://api.openweathermap.org/data/2.5/uvi?appid=40571805cf3b0ae2faaf7476a276be34&lat=${lat}&lon=${lon}`
+    
+    $.ajax({
+        url: url, 
+        method: "get"
+    }).then(function(API){
+        console.log(API)
+        $("#uv").text(`UV: ${API.value}`)
+    })
+}
