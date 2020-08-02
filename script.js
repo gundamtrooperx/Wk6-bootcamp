@@ -55,7 +55,7 @@ function fivedayforeCast(cityName) {
 
 //http://samples.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&appid=439d4b804bc8187953eb36d2a8c26a02
 function UV(lat, lon) {
-    var url = `http://api.openweathermap.org/data/2.5/uvi?appid=40571805cf3b0ae2faaf7476a276be34&lat=${lat}&lon=${lon}`
+    var url = `https://api.openweathermap.org/data/2.5/uvi?appid=40571805cf3b0ae2faaf7476a276be34&lat=${lat}&lon=${lon}`
     
     $.ajax({
         url: url, 
