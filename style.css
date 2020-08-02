@@ -12,6 +12,11 @@ header {
     width: auto;
 }
 
-#row2 {
+.fiveday {
+    display: flex;
     float: left;
+}
+
+.card {
+    width:33%;
 }

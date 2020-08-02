@@ -4,6 +4,7 @@ $("#submit-btn").on("click", function(even){
     var cityName = $("#search-bar").val()
     console.log(cityName)
     foreCast(cityName)
+    fivedayforeCast(cityName)
 })
 
 function foreCast(cityName) {
@@ -24,3 +25,28 @@ function foreCast(cityName) {
 
 }
 
+
+function fivedayforeCast(cityName) {
+    var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&APPID=40571805cf3b0ae2faaf7476a276be34&units=imperial"
+    
+    $.ajax({
+        url: url, 
+        method: "get"
+    }).then(function(API){
+        console.log(API)
+        $("#5day").empty()
+        for(let i =0; i < API.list.length; i = i + 8) {
+        
+        $("#5day").append(`<div class = "card">
+        <h6>Temp: ${API.list[i].main.temp}</h6>
+        <p>Description: ${API.list[i].weather[0].description}</p>
+        <p>Wind Speed: ${API.list[i].wind.speed}</p>
+        <p>Humidity: ${API.list[i].main.humidity}</p>
+        <img class="img-fluid" src="https://openweathermap.org/img/wn/${API.list[i].weather[0].icon}@2x.png"/>`)
+        }
+        
+    })
+
+}
+
+//http://samples.openweathermap.org/data/2.5/uvi/forecast?lat=37.75&lon=-122.37&appid=439d4b804bc8187953eb36d2a8c26a02
