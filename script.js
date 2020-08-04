@@ -65,3 +65,5 @@ function UV(lat, lon) {
         $("#uv").text(`UV: ${API.value}`)
     })
 }
+
+// Set-Cookie; __Secure-PAPISID;123; Secure; Domain=openweathermap.org
